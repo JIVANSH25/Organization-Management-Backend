@@ -1,10 +1,8 @@
-# app/routers/org.py
 from fastapi import APIRouter, HTTPException, Depends
-from app.models import OrgCreate
-from app.crud import create_organization
+from app.models import OrgCreate, OrgOut
+from app.crud import create_organization, get_org_by_name, ORGS, ADMINS
 from app.dependencies import get_current_admin
 from app.db import client
-
 
 router = APIRouter(prefix="/org", tags=["org"])
 
@@ -15,17 +13,20 @@ async def create_org(payload: OrgCreate):
         return {"org_name": res["org_name"], "collection_name": res["collection_name"]}
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
-    except Exception as e:
+    except Exception:
         raise HTTPException(status_code=500, detail="Internal server error")
+
 
 @router.get("/get/{org_name}")
 async def get_org(org_name: str):
     org = await get_org_by_name(org_name)
     if not org:
         raise HTTPException(status_code=404, detail="Organization not found")
+
     org["admin_id"] = str(org["admin_id"])
     org["_id"] = str(org["_id"])
     return org
+
 
 @router.put("/update")
 async def update_org_name(new_org_name: str, admin=Depends(get_current_admin)):
@@ -68,6 +69,7 @@ async def update_org_name(new_org_name: str, admin=Depends(get_current_admin)):
     )
 
     return {"message": "Organization renamed successfully"}
+
 
 @router.delete("/delete")
 async def delete_org(admin=Depends(get_current_admin)):
