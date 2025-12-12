@@ -1,5 +1,5 @@
-mangum==0.17.0
 fastapi
+mangum
 uvicorn
 motor
 pymongo
