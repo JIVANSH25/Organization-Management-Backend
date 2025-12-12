@@ -1,10 +1,10 @@
+mangum==0.17.0
 fastapi
 uvicorn
-mangum
 motor
 pymongo
 dnspython
-bcrypt
 python-jose
+bcrypt
 pydantic
 python-dotenv
