@@ -1,9 +1,10 @@
 # app/routers/org.py
 from fastapi import APIRouter, HTTPException, Depends
-from ..models import OrgCreate, OrgOut
-from ..crud import create_organization, get_org_by_name, ORGS, ADMINS
-from ..dependencies import get_current_admin
-from ..db import client
+from app.models import OrgCreate
+from app.crud import create_organization
+from app.dependencies import get_current_admin
+from app.db import client
+
 
 router = APIRouter(prefix="/org", tags=["org"])
 

@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from mangum import Mangum
-from .routers import org as org_router, admin as admin_router
+from app.routers import org as org_router
+from app.routers import admin as admin_router
 
 app = FastAPI(title="Org Management Service")
 

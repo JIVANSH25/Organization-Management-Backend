@@ -1,6 +1,6 @@
 # app/db.py
 from motor.motor_asyncio import AsyncIOMotorClient
-from .config import MONGO_URI, MASTER_DB
+from app.config import MONGO_URI, MASTER_DB
 
 client = AsyncIOMotorClient(MONGO_URI)
 master_db = client[MASTER_DB]

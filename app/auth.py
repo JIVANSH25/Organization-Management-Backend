@@ -2,7 +2,7 @@
 from datetime import datetime, timedelta
 import bcrypt
 from jose import jwt
-from .config import JWT_SECRET, JWT_ALGORITHM, ACCESS_TOKEN_EXPIRE
+from app.config import JWT_SECRET, JWT_ALGORITHM, ACCESS_TOKEN_EXPIRE
 
 def hash_password(plain: str) -> str:
     hashed = bcrypt.hashpw(plain.encode("utf-8"), bcrypt.gensalt())

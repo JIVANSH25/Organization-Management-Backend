@@ -2,7 +2,7 @@
 from fastapi import Depends, HTTPException
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from jose import JWTError, jwt
-from .config import JWT_SECRET, JWT_ALGORITHM
+from app.config import JWT_SECRET, JWT_ALGORITHM
 
 bearer_scheme = HTTPBearer()  # This tells FastAPI it is a "Bearer" security scheme
 

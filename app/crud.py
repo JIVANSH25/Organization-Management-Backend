@@ -1,6 +1,6 @@
 # app/crud.py
-from .db import master_db, client
-from .auth import hash_password
+from app.db import master_db, client
+from app.auth import hash_password
 from datetime import datetime
 from bson import ObjectId
 

@@ -1,8 +1,9 @@
 # app/routers/admin.py
 from fastapi import APIRouter, HTTPException
-from ..models import AdminLogin, TokenOut
-from ..crud import get_admin_by_email, get_org_by_name
-from ..auth import verify_password, create_access_token
+from app.models import AdminLogin
+from app.crud import get_admin_by_email
+from app.auth import verify_password
+
 
 router = APIRouter(prefix="/admin", tags=["admin"])
 
