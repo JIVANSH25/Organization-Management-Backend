@@ -7,4 +7,6 @@ dnspython
 python-jose
 bcrypt
 pydantic
+pydantic[email]
+email-validator
 python-dotenv
